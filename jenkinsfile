@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('docker pull images') {
+            steps {
+               powershell 'docker pull docker/getting-started'
+            }
+        }
+        stage('docker Run container'){
+            steps {
+               powershell 'docker run -d docker/getting-started'
+            }
+        }
+    }
+}
